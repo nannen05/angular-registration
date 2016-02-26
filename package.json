@@ -1,0 +1,26 @@
+{
+  "name": "registration",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nannen05/angular-registration.git"
+  },
+  "author": "Nick Annen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nannen05/angular-registration/issues"
+  },
+  "homepage": "https://github.com/nannen05/angular-registration#readme",
+  "devDependencies": {
+    "bower": "^1.7.7",
+    "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
+    "gulp-connect": "^3.0.0",
+    "wiredep": "^3.0.0"
+  }
+}
