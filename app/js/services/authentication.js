@@ -1,8 +1,18 @@
-myApp.factory('Authentication' , ['$rootScope', '$firebaseAuth', 'FIREBASE_URL', '$location',  
-	function($rootScope, $firebaseAuth, FIREBASE_URL, $location) {
+myApp.factory('Authentication' , ['$rootScope', '$firebaseAuth', '$firebaseObject', 'FIREBASE_URL', '$location',  
+	function($rootScope, $firebaseAuth, $firebaseObject, FIREBASE_URL, $location) {
 
 		var ref = new Firebase(FIREBASE_URL);
 	 	var auth = $firebaseAuth(ref);
+
+	 	auth.$onAuth(function(authUser) {
+	 		if (authUser) {
+	 			var userRef = new Firebase(FIREBASE_URL + 'users/' + authUser.uid);
+	 			var userObj = $firebaseObject(userRef);
+	 			$rootScope.currentUser = userObj;
+	 		} else {
+	 			$rootScope.currentUser = userObj;
+	 		}
+	 	});
 
 	 	return {
 	 		login: function(user) {
@@ -11,6 +21,7 @@ myApp.factory('Authentication' , ['$rootScope', '$firebaseAuth', 'FIREBASE_URL',
 	 				password 	: user.password
 	 			}).then(function(regUser) {
 	 				$location.path('/success');
+	 				//$rootScope.message = 'You are now loggedin' + user.firstname;
 	 			}).catch(function(error) {
 	 				$rootScope.message = error.message;
 	 			});

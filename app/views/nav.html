@@ -1,5 +1,10 @@
   <div class="branding"><a ng-href="#/">angularJS</a></div>
-  <ul>
+  <ul ng-show="currentUser">
+    <li><a ng-href="#/login">Login</a></li>
+    <li><a ng-href="#/register">Register</a></li>
+    <li><a ng-href="#/register">My Account</a></li>
+  </ul>
+   <ul ng-hide="currentUser">
     <li><a ng-href="#/login">Login</a></li>
     <li><a ng-href="#/register">Register</a></li>
   </ul>
