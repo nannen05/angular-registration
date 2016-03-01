@@ -1,3 +1,3 @@
-myApp.controller('SuccessController' , ['$scope', function($scope) {
-	$scope.message="Success";
+myApp.controller('SuccessController' , ['$scope', 'Authentication', function($scope, Authentication) {
+	$scope.message = "Success";
 }]);
