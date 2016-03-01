@@ -26,7 +26,11 @@ myApp.factory('Authentication' , ['$rootScope', '$firebaseAuth', '$firebaseObjec
 	 				$rootScope.message = error.message;
 	 			});
 	 			$rootScope.message = "Welcome" + ' ' + user.email;
-	 		},
+	 		}, //login
+
+	 		logout: function(user) {
+	 			return auth.$unauth();
+	 		}, //logout
 
 	 		register: function(user) {
 		 		auth.$createUser({
